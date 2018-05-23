@@ -3,7 +3,7 @@ const path = require('path');
 /*const eslintFormatter = require('react-dev-utils/eslintFormatter');*/
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-// const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 module.exports = {
@@ -15,7 +15,7 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         publicPath: WEBPACK_ENV === 'dev' 
             ? '/dist/' : '',
-        filename: 'bundle.js',
+        filename: 'static/js/bundle.js',
     },
     module: {
         //加载器配置
@@ -56,42 +56,72 @@ module.exports = {
                     presets: ['es2015','react']
                 }
             },
-            {
-                test: /\.(png|jpg|gif|jpeg)$/,
-                loader: 'url-loader?limit=8192&name=../images/[hash:8].[name].[ext]' // 这里的 limit=8192 表示用 base64 编码 <= ８K 的图像
-            },
+            // {
+            //     test: /\.(png|jpg|gif|jpeg)$/,
+            //     loader: 'url-loader?limit=8192&name=../images/[hash:8].[name].[ext]' // 这里的 limit=8192 表示用 base64 编码 <= ８K 的图像
+            // },
+            // {
+            //     test: /\.css$/,
+            //     loader: 'style-loader!css-loader'
+            // },
+            // {
+            //     test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
+            //     loader: "file-loader"
+            // },  //添加
+            // {
+            //     test: /\.(woff|woff2)$/,
+            //     loader:"url-loader?prefix=font/&limit=5000"
+            // }, //添加
+            // {
+            //     test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
+            //     loader: "url-loader?limit=10000&mimetype=application/octet-stream"
+            // }, //添加
+            // {
+            //     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+            //     loader: "url-loader?limit=10000&mimetype=image/svg+xml"
+            // } //添加
+            // css文件的处理
             {
                 test: /\.css$/,
-                loader: 'style-loader!css-loader'
+                use: ExtractTextPlugin.extract({
+                    fallback: "style-loader",
+                    use: "css-loader"
+                })
             },
-            // {
-            //     test: /\.(scss|sass|css)$/,  // pack sass and css files
-            //     use: ExtractTextPlugin.extract({
-            //         fallback: "style-loader",
-            //         use: [
-            //             // "style-loader",
-            //             "css-loader",
-            //             // "postcss-loader",
-            //             "sass-loader"
-            //         ]
-            //     })
-            // },
+            // sass文件的处理
             {
-                test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "file-loader"
-            },  //添加
+                test: /\.scss$/,
+                use: ExtractTextPlugin.extract({
+                    fallback: 'style-loader',
+                    use: ['css-loader', 'sass-loader']
+                })
+            },
+            // 图片的配置
             {
-                test: /\.(woff|woff2)$/,
-                loader:"url-loader?prefix=font/&limit=5000"
-            }, //添加
+                test: /\.(png|jpg|gif)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'static/resource/[name].[ext]'
+                        }
+                    }
+                ]
+            },
+            // 字体图标的配置
             {
-                test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url-loader?limit=10000&mimetype=application/octet-stream"
-            }, //添加
-            {
-                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-                loader: "url-loader?limit=10000&mimetype=image/svg+xml"
-            } //添加
+                test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {
+                            limit: 8192,
+                            name: 'static/resource/[name].[ext]'
+                        }
+                    }
+                ]
+            }
         ]
     },
     plugins: [
@@ -100,7 +130,7 @@ module.exports = {
             jQuery: "jquery",
             jquery: "jquery"
         }),
-        // new ExtractTextPlugin("style.css"),
+        new ExtractTextPlugin("static/css/style.css"),
         // 处理html文件 
         new HtmlWebpackPlugin({
             template: './src/index.html',

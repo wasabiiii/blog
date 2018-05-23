@@ -28,7 +28,24 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use('/',express.static(path.join(__dirname, '/client/static')));
+
+
+app.use('/api/blog', blogRouter);
+app.use('/api/user', userRouter);
+
+app.use(function(req, res, next) {
+  if(req.url.startsWith('/api/')||req.url.startsWith('/dist/static')){
+    return next()
+  }
+  return res.sendFile(path.resolve('dist/index.html'))
+
+});
+
+app.use('/dist/static',express.static(path.resolve('dist/static')));
+app.use('/',express.static(path.resolve('dist')));
+
+
+//app.use('/',express.static(path.join(__dirname, '/client/static')));
 // app.use('/fe',express.static(path.join(__dirname, '/client/static/fe')));
 // app.use('/be',express.static(path.join(__dirname, '/client/static/be')));
 // app.use(require('express-formidable')({
@@ -43,8 +60,7 @@ app.use(cookieParser());
 // app.use('/about',about);
 // app.use('/blog',blog);
 // app.use('/comment',comment);
-app.use('/api/blog', blogRouter);
-app.use('/api/user', userRouter);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

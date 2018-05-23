@@ -30,8 +30,7 @@ class Cate extends React.Component{
         })
     }
 
-    componentWillReceiveProps(nextProps){
-        //.match.params.id ,location.pathname 区别？
+    componentWillReceiveProps(nextProps){ 
         if (nextProps.match.params.id != this.props.match.params.id) {
             $.ajax({
                 url: '/api/blog/cate'+'/'+nextProps.match.params.id,
