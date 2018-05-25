@@ -62,9 +62,14 @@ class Cate extends React.Component{
 
 
         return(
-            <div>
-                {blog_items}
+            <div className="container">
+                <div className="col-md-9">
+                    {blog_items}
+                </div>
+                <div className="col-md-3">
+                </div>
             </div>
+
         );
     }
 }

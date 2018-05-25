@@ -1,36 +1,36 @@
-.navbar{
-    height:50px;
-    padding: 10px 0;
+*{
+  margin:0;
+  padding:0;
+}
+
+a:hover,a:focus {
+  text-decoration: none;
+}
+
+/*防止内容被navbar挡住*/
+body{
+  margin-top: 70px;
+}
+
+/*响应式navbar*/
+.navbar-default{
     background-color: white;
+    border-color: white;
 }
 
-.navbar ul {
-    list-style:none; /* 去掉ul前面的符号 */
-}
-.navbar ul li {
-    float:left;
-}
-.navbar ul li a, div.navbar ul li a:visited {
-    /*background-color: #465c71; !* 背景色 *!*/
-    /*border: 1px #4e667d solid; !* 边框 *!*/
-    /*color: #dde4ec; !* 文字颜色 *!*/
-    display: block; /* 此元素将显示为块级元素，此元素前后会带有换行符 */
-    line-height: 1.35em; /* 行高 */
-    padding: 4px 20px; /* 内部填充的距离 */
-    text-decoration: none; /* 不显示超链接下划线 */
-    white-space: nowrap; /* 对于文本内的空白处，不会换行，文本会在在同一行上继续，直到遇到 <br> 标签为止。 */
+.navbar-default .navbar-toggle {
+    border-color: white;
 }
 
-.navbar ul li a:hover {
-    /*background-color: #bfcbd6; !* 背景色 *!*/
-    /*color: #465c71; !* 文字颜色 *!*/
-    text-decoration: none; /* 不显示超链接下划线 */
+.navbar-header .nav-title:hover,
+.navbar-header .nav-title:focus{
+  color:#000;
 }
 
-.navbar ul li a:active {
-    /*background-color: #465c71; !* 背景色 *!*/
-    /*color: #cfdbe6; !* 文字颜色 *!*/
-    text-decoration: none; /* 不显示超链接下划线 */
+
+.navbar-collapse .navbar-nav li a:hover,
+.navbar-collapse .navbar-nav li a:focus{
+  color:#000;
 }
 
 .banner{
@@ -39,7 +39,11 @@
     display: flex;
     justify-content:center;/*水平居中*/
     align-items:center;/*垂直居中*/
-}
+    background-size: cover;
+    margin-bottom: 10px;
+} 
+
+
 .banner p{
    color:white;
 }
@@ -67,13 +71,36 @@
 
 /*blog主页*/
 .blog-item{
-    display: flex;
-    align-items:baseline;
+    /*display: flex;
+    align-items:baseline;*/
+    padding: 15px;
+    border-bottom: 2px dashed #f6f6f6;
+}
+
+.blog-item h1{
+    /*padding: 1em 80px 0 80px;*/
+    font-size: 24px;
+    /*margin: 1.5em -80px 0.5em -80px;*/
+    /*text-shadow: 1px 1px #EFEFEF, 3px 3px #AEE2D9;*/
+    /*border-top: 2px dashed #f6f6f6;*/
+    /*color: #22C3AA;*/
+    /*color: #4f4f4f;*/
+    color: #337ab7;
+    font-weight: bolder;
+    overflow: visible;
+}
+.blog-item p{
+    font-size: 16px;
+    color: #999;
+    line-height: 1.7;
+
 }
 .abstract{
-    text-overflow:ellipsis;
-    white-space:nowrap;
-    overflow:hidden;
+   overflow-wrap: break-word;
+}
+
+.blog-item-time{
+    float: right;
 }
 
 .div-center{
@@ -81,6 +108,21 @@
     justify-content: center;
 }
 
+
+.tag{
+    margin-right: 5px;
+}
+
 .footer{
     padding: 80px 0 50px 0;
 }
+
+
+
+
+
+
+
+
+
+

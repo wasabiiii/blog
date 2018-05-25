@@ -8,36 +8,38 @@ require('./style.css');
 class BlogItem extends React.Component{
     render(){
         let {id,title,content,tag,time} = this.props;
-        // console.log(typeof tag)
+        content = content.replace(/<[^>]+>/g,"");//去除html标签
         // console.log(tag)
         // tag = tag.split(',');
         let tag_list = tag.map(function (item,index) {
             // const {_id,title,content,tag,time=} = item;
             console.log(item)
             const link = `/cate/${item}`;
-            return <span key={index} ><Link to={link}>{item}</Link></span>;
+            return <button className="btn btn-xs btn-default tag" key={index} ><Link to={link}>{item}</Link></button>;
 
         });
         return(
-            <div className="container blog-panel">
+            <div className="blog-panel">
                 <div className="blog-item">
-                    <div className="col-md-9 ">
+                    <div>
                         <Link to={"/blog/"+id}>
                             <h1>{title}</h1>
                         </Link>
                         <p className="abstract">
-                            {content.replace(/<[^>]+>/g,"")}
+                            {content.length > 60 ? content.slice(0, 60) + "..." : content}
                         </p>
                         <div>
-                            <i className="fa fa-tags fa-lg"></i>
-                            {tag_list}
+                            <span>
+                                <i className="fa fa-tags fa-lg"></i>
+                                {tag_list}
+                            </span>
+                            <span className="blog-item-time">
+                                {moment(time).format('YYYY-MM-DD')}
+                            </span>
                         </div>
 
+                    </div>
 
-                    </div>
-                    <div className="col-md-3 blog-item-time">
-                        {moment(time).format('YYYY-MM-DD')}
-                    </div>
                 </div>
             </div>
         )

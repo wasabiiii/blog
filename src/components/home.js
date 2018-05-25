@@ -9,7 +9,17 @@ class Home extends React.Component{
         return(
             <div>
                 <Banner />
-                <BlogList />
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-9">
+                            <BlogList />
+                        </div>
+                        <div className="col-md-3">
+                            <p>test</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         );
 
@@ -20,7 +30,11 @@ class Banner extends React.Component{
     render(){
         return(
             <div className="banner">
-                <p>hello world</p>
+                <div>
+                    <p>KEEP CLAM</p>
+                    <p>&</p>
+                    <p>STAY BLINGBLING</p>
+                </div>
             </div>
         )
     }

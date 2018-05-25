@@ -10,7 +10,8 @@ var markdown = require('markdown').markdown;
 
 //请求所有文章
 router.get('/',(req,res,next)=>{
-    Blog.find({},(err,resData)=>{
+    // Blog.find({}).sort({"time.createAt":-1},(err,resData)=>{
+    Blog.find({}).sort({"time.createAt":-1}).exec((err,resData)=>{
         //将文章由markdown转化为html
         resData.forEach((doc)=>{
             doc.content = markdown.toHTML(doc.content);
