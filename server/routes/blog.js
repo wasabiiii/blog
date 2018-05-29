@@ -34,6 +34,25 @@ router.get('/',(req,res,next)=>{
     });
 });
 
+
+//获取所有标签
+router.get('/cates',(req,res,next)=>{
+    // Blog.find({}).sort({"time.createAt":-1},(err,resData)=>{
+    Blog.distinct("tag").exec((err,resData)=>{
+        if(err){
+            res.json({
+                'status':0,
+                'message':'获取失败'
+            });
+        }else{
+            res.json({
+                'status':1,
+                'message':'获取成功',
+                'data':resData,
+            });
+        }
+    });
+});
 //请求某个分类的文章列表
 router.get('/cate/:name',(req,res,next)=>{
     Blog.find({tag:req.params.name},(err,resData)=>{

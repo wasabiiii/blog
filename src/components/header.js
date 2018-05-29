@@ -18,7 +18,10 @@ class Header extends React.Component{
                         <span className="icon-bar"></span>
                       <span className="icon-bar"></span>
                       </button>
-                      <a href="#" className="navbar-brand nav-title">加油啦</a>
+                      {/*<a href="#" className="navbar-brand nav-title">加油啦</a>*/}
+                      <Link className="navbar-brand nav-title" to="/">
+                          加油啦
+                      </Link>
                     </div>
                     <div className="collapse navbar-collapse" id="navbar-menu">
                       <ul className="nav navbar-nav navbar-right">

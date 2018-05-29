@@ -7,14 +7,20 @@ import Header from './components/header';
 import Footer from './components/footer';
 import BlogDetail from './components/blogDetail';
 import Cate from './components/cate';
+import {Provider} from 'mobx-react';
+import rootStore from './stores/rootStore';
+
+import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends React.Component{
     render(){
         return (
+            <Provider {...rootStore}>
             <Router>
                 <div>
                     <Header />
-                    {/*<Provider store={store}>*/}
+                    
                         <Switch>
                             <Route exact path="/" component={Home}/>
                             <Route path="/about" component={Home} />
@@ -22,10 +28,11 @@ class App extends React.Component{
                             <Route path="/cate/:id" component={Cate} />
                             
                         </Switch>
-                   {/* </Provider> */}
+                   
                    <Footer />
                 </div>
             </Router>
+            </Provider>
         )
     }
 }

@@ -28,7 +28,7 @@ module.exports = {
         }
     },
     comment:{
-        articleId:{
+        blogId:{
             type: String,
             require: true
         },
@@ -36,7 +36,7 @@ module.exports = {
             type: String,
             require: true
         },
-        text:{
+        content:{
             type: String,
             require: true
         },

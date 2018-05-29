@@ -1,14 +1,17 @@
 import React from 'react';
-import "bootstrap";
-import 'bootstrap/dist/css/bootstrap.css';
-import BlogItem from './blogItem'
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.css';
+import BlogItem from './blogItem';
+import 'whatwg-fetch';
+import { Link }    from 'react-router-dom';
 require('./style.css');
 
 class Cate extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            data:[]
+            data:[],
+            allCates:[]
         };
     }
 
@@ -27,7 +30,20 @@ class Cate extends React.Component{
                     //$('.text1').html(this.state.text);
                 }
             }
-        })
+        });
+        fetch('/api/blog/cates',{credentials: 'include'})
+            .then((response) => response.json())
+            .then((resData) => {
+                    console.log(resData);
+                    if(resData.status == 1){
+                        this.setState({
+                            allCates: resData.data,
+                        });
+                    }
+                })
+            .catch((err) => {
+                console.log(err);
+            })
     }
 
     componentWillReceiveProps(nextProps){ 
@@ -58,6 +74,22 @@ class Cate extends React.Component{
 
         });
 
+        // let cate_list = this.state.allCates.map(function (item) {
+        //     // const {_id,title,content,tag,time=} = item;
+        //     console.log(item);
+        //     //return <Button key={item._id} id={item._id} tag={item.tag}/>;
+        //     return <Button key={item}>{item}</Button>
+
+        // });
+
+        let tag_list = this.state.allCates.map(function (item,index) {
+            // const {_id,title,content,tag,time=} = item;
+            console.log(item)
+            const link = `/cate/${item}`;
+            return <button className="btn btn-xs btn-default tag" key={index} ><Link to={link}>{item}</Link></button>;
+
+        });
+
     /*    console.log(cate_blog);*/
 
 
@@ -67,6 +99,15 @@ class Cate extends React.Component{
                     {blog_items}
                 </div>
                 <div className="col-md-3">
+                    <div className="blog-panel"> 
+                        <div className="blog-title">    
+                            <h1>全部标签</h1>
+                        </div> 
+                        <div className="blog-content">  
+                            {tag_list}
+                        </div>       
+                    </div>
+                    
                 </div>
             </div>
 

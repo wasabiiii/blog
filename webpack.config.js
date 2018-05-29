@@ -17,6 +17,12 @@ module.exports = {
             ? '/dist/' : '',
         filename: 'static/js/bundle.js',
     },
+    resolve: {
+        alias : {
+            components  : path.resolve(__dirname, 'src/components'),
+            util        : path.resolve(__dirname, 'src/util')
+        }
+    },
     module: {
         //加载器配置
         rules: [
@@ -52,9 +58,9 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader',
-                query: {
-                    presets: ['es2015','react']
-                }
+                // query: {
+                //     presets: ['es2015','react']
+                // }
             },
             // {
             //     test: /\.(png|jpg|gif|jpeg)$/,

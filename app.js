@@ -15,6 +15,7 @@ var index = require('./server/routes/index');
 // var comment = require('./server/routes/comment');
 var blogRouter = require('./server/routes/blog');
 var userRouter = require('./server/routes/user');
+var commentRouter = require('./server/routes/comment');
 var app = express();
 
 // view engine setup
@@ -32,6 +33,7 @@ app.use(cookieParser());
 
 app.use('/api/blog', blogRouter);
 app.use('/api/user', userRouter);
+app.use('/api/comment', commentRouter);
 
 app.use(function(req, res, next) {
   if(req.url.startsWith('/api/')||req.url.startsWith('/dist/static')){
