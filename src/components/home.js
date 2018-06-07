@@ -2,7 +2,8 @@ import React from 'react';
 import "bootstrap";
 import 'bootstrap/dist/css/bootstrap.css'
 require('./style.css');
-import BlogList from './blogList'
+import BlogList from 'components/blog/blogList'
+import TagList from 'components/tag/tagList'
 
 class Home extends React.Component{
     render(){
@@ -15,7 +16,7 @@ class Home extends React.Component{
                             <BlogList />
                         </div>
                         <div className="col-md-3">
-                            <p>test</p>
+                            <TagList />
                         </div>
                     </div>
                 </div>

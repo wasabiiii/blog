@@ -4,24 +4,14 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var ejs = require('ejs');
 var marked = require('marked');
 var markdown = require('markdown').markdown;
 
 var index = require('./server/routes/index');
-// var user = require('./server/routes/user');
-// var about = require('./server/routes/about');
-// var blog = require('./server/routes/blog');
-// var comment = require('./server/routes/comment');
 var blogRouter = require('./server/routes/blog');
 var userRouter = require('./server/routes/user');
 var commentRouter = require('./server/routes/comment');
 var app = express();
-
-// view engine setup
-// app.set('views', path.join(__dirname, '/client/static/views'));
-// app.set('view engine', 'ejs');
-// app.engine('html' , ejs.renderFile);
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
@@ -54,14 +44,6 @@ app.use('/',express.static(path.resolve('dist')));
 //   uploadDir: path.join(__dirname,'/client/static/be/img'), //上传目录
 //   keepExtensions: true// 保留后缀
 // }))
-
-// app.get('/',function(req,res){
-//     res.render('index.html');
-// });
-// app.use('/user',user);
-// app.use('/about',about);
-// app.use('/blog',blog);
-// app.use('/comment',comment);
 
 
 // catch 404 and forward to error handler

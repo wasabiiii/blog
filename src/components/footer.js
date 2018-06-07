@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import "bootstrap";
-import 'bootstrap/dist/css/bootstrap.css';
+// import "bootstrap";
+// import 'bootstrap/dist/css/bootstrap.css';
 require('./style.css');
 
 class Footer extends Component {

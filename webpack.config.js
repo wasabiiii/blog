@@ -7,6 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 module.exports = {
+    devtool: 'eval-source-map',//生成Source Maps（使调试更容易),可以定位到源文件，而不是打包后的文件。
     //页面入口文件配置
     entry: './src/index.js',
     //入口文件输出配置
@@ -55,37 +56,12 @@ module.exports = {
             //     exclude: /node_modules/,
             // },
             {
-                test: /\.js$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader',
-                // query: {
-                //     presets: ['es2015','react']
-                // }
+                test: /\.(js|jsx)$/,
+                exclude: /(node_modules)/,
+                use: {
+                    loader: 'babel-loader'
+                }
             },
-            // {
-            //     test: /\.(png|jpg|gif|jpeg)$/,
-            //     loader: 'url-loader?limit=8192&name=../images/[hash:8].[name].[ext]' // 这里的 limit=8192 表示用 base64 编码 <= ８K 的图像
-            // },
-            // {
-            //     test: /\.css$/,
-            //     loader: 'style-loader!css-loader'
-            // },
-            // {
-            //     test: /\.eot(\?v=\d+\.\d+\.\d+)?$/,
-            //     loader: "file-loader"
-            // },  //添加
-            // {
-            //     test: /\.(woff|woff2)$/,
-            //     loader:"url-loader?prefix=font/&limit=5000"
-            // }, //添加
-            // {
-            //     test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/,
-            //     loader: "url-loader?limit=10000&mimetype=application/octet-stream"
-            // }, //添加
-            // {
-            //     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
-            //     loader: "url-loader?limit=10000&mimetype=image/svg+xml"
-            // } //添加
             // css文件的处理
             {
                 test: /\.css$/,

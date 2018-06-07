@@ -1,6 +1,6 @@
 import React from 'react'
-import "bootstrap";
-import 'bootstrap/dist/css/bootstrap.css'
+// import "bootstrap";
+// import 'bootstrap/dist/css/bootstrap.css'
 import { Link, NavLink }    from 'react-router-dom';
 require('./style.css');
 
@@ -45,10 +45,6 @@ class Header extends React.Component{
                     </div>
                   </div>
                 </nav> 
-
-                <div>
-                    {this.props.children}
-                </div>
             </div>
 
         )

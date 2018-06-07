@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "webpack",
-    "dev": "node_modules/.bin/webpack-dev-server"
+    "dev": "node_modules/.bin/webpack-dev-server",
+    "dist": "node_modules/.bin/webpack -p"
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
@@ -18,9 +18,6 @@
     "mobx": "^4.3.0",
     "mobx-react": "^5.1.2",
     "mongoose": "^4.12.3",
-    "rc-banner-anim": "^1.0.0",
-    "rc-queue-anim": "^1.3.1",
-    "rc-tween-one": "^1.5.5",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.2.2",
@@ -37,13 +34,10 @@
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "css-loader": "^0.28.7",
-    "debug": "~2.6.3",
-    "ejs": "^2.5.7",
     "express": "~4.15.2",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^1.1.5",
     "html-webpack-plugin": "^3.2.0",
-    "jsx-loader": "^0.13.2",
     "mobx-react-devtools": "^5.0.1",
     "moment": "^2.22.0",
     "morgan": "~1.8.1",

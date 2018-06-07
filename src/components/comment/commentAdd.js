@@ -1,7 +1,4 @@
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
-// require('./style.css');
-import request from 'util/request';
 import { inject, observer } from 'mobx-react';
 
 @inject('commentStore')
@@ -41,7 +38,6 @@ class CommentAdd extends React.Component{
             };
 
             this.props.commentStore.fetchAddComment(body);
-            //this.props.commentStore.fetchGetComment(blogId);
         }
 
 
@@ -54,8 +50,23 @@ class CommentAdd extends React.Component{
                     <h1>发表评论</h1>
                 </div>
                <div className="blog-content">
-                    昵称：<input className="form-control author-input" type="text" name="inputAuthor" value={this.state.inputAuthor} onChange={this.handleInputChange} />
-                    评论：<textarea className="form-control" name="inputComment" cols="30" rows="4" placeholder="有什么想说的都可以写在这里~" value={this.state.inputComment} onChange={this.handleInputChange} />
+                    昵称：
+                    <input 
+                        className="form-control author-input" 
+                        type="text" 
+                        name="inputAuthor" 
+                        value={this.state.inputAuthor} 
+                        onChange={this.handleInputChange} 
+                    />
+                    评论：
+                    <textarea 
+                        className="form-control" 
+                        name="inputComment" 
+                        cols="30" rows="4" 
+                        placeholder="有什么想说的都可以写在这里~" 
+                        value={this.state.inputComment} 
+                        onChange={this.handleInputChange} 
+                        />
                     <button className="btn btn-default btn-s btn-submit" onClick={this.handleSubmit}>发布</button>
                 </div>
             </div>

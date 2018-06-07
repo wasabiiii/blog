@@ -1,20 +1,19 @@
 import React from 'react';
-import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap';
+// import 'bootstrap/dist/css/bootstrap.css';
 import { Link }    from 'react-router-dom';
 import moment from 'moment';
-require('./style.css');
+// require('./style.css');
 
 class BlogItem extends React.Component{
     render(){
         let {id,title,content,tag,time} = this.props;
         content = content.replace(/<[^>]+>/g,"");//去除html标签
-        // console.log(tag)
-        // tag = tag.split(',');
+
         let tag_list = tag.map(function (item,index) {
             // const {_id,title,content,tag,time=} = item;
             console.log(item)
-            const link = `/cate/${item}`;
+            const link = `/tag/${item}`;
             return <button className="btn btn-xs btn-default tag" key={index} ><Link to={link}>{item}</Link></button>;
 
         });

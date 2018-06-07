@@ -5,7 +5,7 @@ var Comment = dbHandle.getModel('comment');
 
 //获得所有评论
 router.get('/',(req,res,next)=>{
-    Comment.find({}).sort({"time.createAt":-1}).exec((err,resData)=>{
+    Comment.find({}).exec((err,resData)=>{
         if(err){
             res.json({
                 'status':0,
@@ -23,7 +23,7 @@ router.get('/',(req,res,next)=>{
 
 //获得某篇文章评论
 router.get('/:id',(req,res,next)=>{
-    Comment.find({blogId:req.params.id}).sort({"time":-1}).exec((err,resData)=>{
+    Comment.find({blogId:req.params.id}).exec((err,resData)=>{
         if(err){
             res.json({
                 'status':0,

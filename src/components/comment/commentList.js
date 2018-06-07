@@ -1,6 +1,4 @@
 import React from 'react';
-// import { withRouter } from 'react-router-dom';
-// require('./style.css');
 import request from 'util/request';
 import moment from 'moment';
 import { inject, observer } from 'mobx-react';

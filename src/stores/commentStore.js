@@ -1,4 +1,3 @@
-
 import { observable, computed, action, runInAction, configure } from 'mobx';
 import request from '../util/request';
 
@@ -11,7 +10,7 @@ class CommentStore{
         request.post('/api/comment/add',body,resData => {
             console.log(resData);
             alert(resData.message);
-            this.commentList.push()
+            this.commentList.push(body);
         });
         
     }

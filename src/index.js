@@ -5,8 +5,8 @@ import { BrowserRouter as Router, Switch, Redirect, Route, Link } from 'react-ro
 import Home from './components/home';
 import Header from './components/header';
 import Footer from './components/footer';
-import BlogDetail from './components/blogDetail';
-import Cate from './components/cate';
+import BlogDetail from './components/blog/blogDetail';
+import Tag from './components/tag/tag';
 import {Provider} from 'mobx-react';
 import rootStore from './stores/rootStore';
 
@@ -25,7 +25,7 @@ class App extends React.Component{
                             <Route exact path="/" component={Home}/>
                             <Route path="/about" component={Home} />
                             <Route path="/blog/:id" component={BlogDetail} />
-                            <Route path="/cate/:id" component={Cate} />
+                            <Route path="/tag/:id" component={Tag} />
                             
                         </Switch>
                    
