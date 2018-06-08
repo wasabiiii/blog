@@ -7,7 +7,7 @@
     "dist": "node_modules/.bin/webpack -p"
   },
   "dependencies": {
-    "bootstrap": "^3.3.7",
+    "bootstrap": "3.3.7",
     "express-formidable": "^1.0.0",
     "file-loader": "^1.1.5",
     "formidable": "^1.1.1",

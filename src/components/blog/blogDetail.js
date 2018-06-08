@@ -1,8 +1,10 @@
 import React from 'react';
 // import 'bootstrap';
 // import 'bootstrap/dist/css/bootstrap.css';
+import { Link } from 'react-router-dom';
 import request from 'util/request';
 import Comment from 'components/comment/comment';
+import moment from 'moment';
 // require('./style.css');
 
 class BlogDetail extends React.Component{
@@ -10,6 +12,8 @@ class BlogDetail extends React.Component{
         super(props);
         this.state={
           title:'',
+          tag:[],
+          time:'',
           content:''
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -21,9 +25,13 @@ class BlogDetail extends React.Component{
 
         request.get('/api/blog/'+match.params.id,(resData) => {
             if(resData.status == 1){
+                let {title,tag,content} = resData.data;
+                let time = moment(time).format('YYYY-MM-DD');
                 this.setState({
-                    title: resData.data.title,
-                    content: resData.data.content
+                    title,
+                    tag,
+                    time,
+                    content
                 });
                 console.log(this.state.content);
                 $('.detail-content').html(this.state.content);
@@ -40,14 +48,24 @@ class BlogDetail extends React.Component{
     }
 
     render(){
+        let {title,tag,time,content} = this.state;
+        let tag_list = tag.map(function (item,index) {
+            const link = `/tag/${item}`;
+            return <button className="btn btn-xs btn-default tag" key={index} ><Link to={link}>{item}</Link></button>;
+        });
+
         return(
             <div className="container">   
                 <div className="blog-panel">
                     <div className="blog-title">
-                        <h1>{this.state.title}</h1>
+                        <h1>{title}</h1>
                     </div>
                     <div className="blog-content detail-content">
-                        {this.state.content}
+                        <div>
+                            {tag_list}
+                            {time}
+                        </div>
+                            {content}
                     </div>
                 </div>
 

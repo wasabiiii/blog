@@ -12,6 +12,10 @@ body{
   margin-top: 70px;
 }
 
+.float-right{
+    float: right;
+}
+
 /*响应式navbar*/
 .navbar-default{
     background-color: white;
@@ -124,8 +128,17 @@ body{
     margin-right: 5px;
 }
 
+.tags{
+    margin-right: 5px;
+    margin-top: 5px;
+}
+
 .footer{
     padding: 80px 0 50px 0;
+}
+
+.pagination>li .active{
+    background-color: #eee;
 }
 
 

@@ -28,7 +28,7 @@ class TagList extends React.Component{
         let tag_list = this.state.allTags.map(function (item,index) {
             console.log(item)
             const link = `/tag/${item}`;
-            return <button className="btn btn-xs btn-default tag" key={index} ><Link to={link}>{item}</Link></button>;
+            return <button className="btn btn-xs btn-default tags" key={index} ><Link to={link}>{item}</Link></button>;
         });
 
         return(

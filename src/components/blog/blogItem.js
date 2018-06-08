@@ -11,8 +11,6 @@ class BlogItem extends React.Component{
         content = content.replace(/<[^>]+>/g,"");//去除html标签
 
         let tag_list = tag.map(function (item,index) {
-            // const {_id,title,content,tag,time=} = item;
-            console.log(item)
             const link = `/tag/${item}`;
             return <button className="btn btn-xs btn-default tag" key={index} ><Link to={link}>{item}</Link></button>;
 

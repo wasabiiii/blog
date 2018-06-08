@@ -1,6 +1,6 @@
 import React from 'react';
 import "bootstrap";
-import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/css/bootstrap.css';
 require('./style.css');
 import BlogList from 'components/blog/blogList'
 import TagList from 'components/tag/tagList'

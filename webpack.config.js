@@ -7,7 +7,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 module.exports = {
-    devtool: 'eval-source-map',//生成Source Maps（使调试更容易),可以定位到源文件，而不是打包后的文件。
+    // devtool: 'eval-source-map',//生成Source Maps（使调试更容易),可以定位到源文件，而不是打包后的文件。
     //页面入口文件配置
     entry: './src/index.js',
     //入口文件输出配置
@@ -118,6 +118,11 @@ module.exports = {
             template: './src/index.html',
             // favicon: './favicon.ico'
         }),
+        // 提出公共模块
+        new webpack.optimize.CommonsChunkPlugin({
+            name : 'common',
+            filename: 'static/js/base.js'
+        })
     ],
     devServer: {
         port: 8001,

@@ -41,11 +41,14 @@ class BlogList extends React.Component{
             <div>
                 {blog_items}
                 {/*<Link to='/blog'>点击查看更多</Link>*/}
-                <Pagination
-                  allPageCount={blogStore.allPageCount}
-                  activeIndex={blogStore.pageActiveIndex}
-                  setIndex={this.setPaginationIndex}
-                />
+                <div className="float-right">
+                    <Pagination
+                      allPageCount={blogStore.allPageCount}
+                      activeIndex={blogStore.pageActiveIndex}
+                      setIndex={this.setPaginationIndex}
+                    />
+                </div>
+
             </div>
         );
     }
