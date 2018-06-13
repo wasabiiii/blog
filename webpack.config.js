@@ -107,11 +107,11 @@ module.exports = {
         ]
     },
     plugins: [
-        new webpack.ProvidePlugin({
-            $: "jquery",
-            jQuery: "jquery",
-            jquery: "jquery"
-        }),
+        // new webpack.ProvidePlugin({
+        //     $: "jquery",
+        //     jQuery: "jquery",
+        //     jquery: "jquery"
+        // }),
         new ExtractTextPlugin("static/css/style.css"),
         // 处理html文件 
         new HtmlWebpackPlugin({

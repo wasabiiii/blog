@@ -39,7 +39,7 @@ router.post('/register',(req,res,next)=>{
         return res.send('Error 400: Post syntax incorrect.');
     }*/
     let user = {
-        username : "mll",
+        username : "xxx",
         password : md5Pwd("123456"),
     }
     let newUser = new User(user);

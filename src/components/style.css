@@ -7,6 +7,10 @@ a:hover,a:focus {
   text-decoration: none;
 }
 
+/*自定义highlight样式*/
+pre{
+    border: none;
+}
 /*防止内容被navbar挡住*/
 body{
   margin-top: 70px;
@@ -14,6 +18,11 @@ body{
 
 .float-right{
     float: right;
+}
+
+.horizontal-center{
+    display: flex;
+    justify-content: center;
 }
 
 /*响应式navbar*/
@@ -134,7 +143,7 @@ body{
 }
 
 .footer{
-    padding: 80px 0 50px 0;
+    padding: 50px 0 30px 0;
 }
 
 .pagination>li .active{

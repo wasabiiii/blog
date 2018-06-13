@@ -1,6 +1,4 @@
 import React from 'react';
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.css';
 import { Link }    from 'react-router-dom';
 import moment from 'moment';
 // require('./style.css');

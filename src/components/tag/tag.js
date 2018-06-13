@@ -1,18 +1,15 @@
 import React from 'react';
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.css';
 import BlogItem from 'components/blog/blogItem';
 import TagList from './tagList';
 import request from 'util/request';
-import { Link }    from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // require('./style.css');
 
 class Tag extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            data:[],
-            // allCates:[]
+            data:[]
         };
     }
 
@@ -25,13 +22,6 @@ class Tag extends React.Component{
                 });
             }
         })
-        // request.get('/api/blog/cates',(resData) => {
-        //     if(resData.status == 1){
-        //         this.setState({
-        //             allCates: resData.data,
-        //         });
-        //     }
-        // })
     }
 
     componentWillReceiveProps(nextProps){ 

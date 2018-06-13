@@ -1,23 +1,28 @@
 var express = require('express');
 var router = express.Router();
-//var marked = require('marked');
 var dbHandle = require('../db/dbHandle');
 var Blog = dbHandle.getModel('blog');
-var markdown = require('markdown').markdown;
-// var moment = require('moment');
 
-/* GET users listing. */
+var marked = require('marked');
+var hljs = require('highlight.js');
+
+marked.setOptions({
+    renderer: new marked.Renderer(),
+    gfm: true,
+    tables: true,
+    breaks: false,
+    pedantic: false,
+    sanitize: true,
+    smartLists: true,
+    smartypants: false,
+    highlight: function (code) {
+        return hljs.highlightAuto(code).value;
+    }
+});
 
 //请求所有文章
 router.get('/',(req,res,next)=>{
-    // Blog.find({}).sort({"time.createAt":-1},(err,resData)=>{
     Blog.find({}).sort({"time.createAt":-1}).exec((err,resData)=>{
-        //将文章由markdown转化为html
-        resData.forEach((doc)=>{
-            doc.content = markdown.toHTML(doc.content);
-            // console.log(doc);
-        });
-
         if(err){
             res.json({
                 'status':0,
@@ -37,7 +42,6 @@ router.get('/',(req,res,next)=>{
 
 //获取所有标签
 router.get('/cates',(req,res,next)=>{
-    // Blog.find({}).sort({"time.createAt":-1},(err,resData)=>{
     Blog.distinct("tag").exec((err,resData)=>{
         if(err){
             res.json({
@@ -53,14 +57,10 @@ router.get('/cates',(req,res,next)=>{
         }
     });
 });
+
 //请求某个分类的文章列表
 router.get('/cate/:name',(req,res,next)=>{
-    Blog.find({tag:req.params.name},(err,resData)=>{
-        //将文章由markdown转化为html
-        resData.forEach((doc)=>{
-            doc.content = markdown.toHTML(doc.content);
-            // console.log(doc);
-        });
+    Blog.find({tag:req.params.name}).exec((err,resData)=>{
         if(err){
             res.json({
                 'status':0,
@@ -78,8 +78,9 @@ router.get('/cate/:name',(req,res,next)=>{
 
 //获取某篇文章
 router.get('/:id',(req,res,next)=>{
-    Blog.findOne({_id:req.params.id},(err,resData)=>{
-        resData.content = markdown.toHTML(resData.content);
+    Blog.findOne({_id:req.params.id}).exec((err,resData)=>{
+        resData.content = marked(resData.content);
+
         if(err){
             res.json({
                 'status':0,
@@ -97,8 +98,7 @@ router.get('/:id',(req,res,next)=>{
 
 //获取编辑文章
 router.get('/markdown/:id',(req,res,next)=>{
-    Blog.findOne({_id:req.params.id},(err,resData)=>{
-        //resData.text = markdown.toHTML(resData.text);
+    Blog.findOne({_id:req.params.id}).exec((err,resData)=>{
         if(err){
             res.json({
                 'status':0,
@@ -120,8 +120,7 @@ router.post('/edit/:id',(req,res,next)=>{
         "title": req.body.title,
         "content": req.body.content,
         "tag": req.body.tag.split(","),
-        // "time": {"updataAt":Date.now()}
-        },(err)=>{
+        }).exec((err)=>{
             if(err){
                 res.json({
                     'status':0,
@@ -140,10 +139,6 @@ router.post('/edit/:id',(req,res,next)=>{
 
 //添加文章
 router.post('/new',(req,res,next)=>{
-   /* if(!req.body.title || !req.body.text) {
-        res.statusCode = 400;
-        return res.send('Error 400: Post syntax incorrect.');
-    }*/
     let blog = {
         title : req.body.title,
         content : req.body.content,
@@ -159,8 +154,7 @@ router.post('/new',(req,res,next)=>{
 
 //删除文章
 router.get('/del/:id',(req,res,next)=>{
-    Blog.remove({_id:req.params.id},(err,resData)=>{
-    //resData.text = markdown.toHTML(resData.text);
+    Blog.remove({_id:req.params.id}).exec((err,resData)=>{
     if(err){
         res.json({
             'status':0,

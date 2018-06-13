@@ -1,6 +1,4 @@
 import React from 'react';
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.css';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 import { inject, observer } from 'mobx-react';
@@ -40,13 +38,13 @@ class BlogList extends React.Component{
         return(
             <div>
                 {blog_items}
-                {/*<Link to='/blog'>点击查看更多</Link>*/}
-                <div className="float-right">
+                <div className="horizontal-center">
                     <Pagination
                       allPageCount={blogStore.allPageCount}
                       activeIndex={blogStore.pageActiveIndex}
                       setIndex={this.setPaginationIndex}
                     />
+                    {/*<div style={{clear:both}}></div>*/}
                 </div>
 
             </div>

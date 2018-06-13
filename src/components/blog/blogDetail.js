@@ -1,6 +1,4 @@
 import React from 'react';
-// import 'bootstrap';
-// import 'bootstrap/dist/css/bootstrap.css';
 import { Link } from 'react-router-dom';
 import request from 'util/request';
 import Comment from 'components/comment/comment';
@@ -20,7 +18,6 @@ class BlogDetail extends React.Component{
     }
 
     componentDidMount(){
-        console.log('this.props',this.props);
         const {match} = this.props;
 
         request.get('/api/blog/'+match.params.id,(resData) => {
@@ -33,8 +30,6 @@ class BlogDetail extends React.Component{
                     time,
                     content
                 });
-                console.log(this.state.content);
-                $('.detail-content').html(this.state.content);
             }
         })
     }
@@ -65,7 +60,8 @@ class BlogDetail extends React.Component{
                             {tag_list}
                             {time}
                         </div>
-                            {content}
+                        <div dangerouslySetInnerHTML={{ __html: content }} />
+                          
                     </div>
                 </div>
 

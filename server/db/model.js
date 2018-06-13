@@ -19,11 +19,11 @@ module.exports = {
         time:{
             createAt:{
                 type: Date,
-                default: Date.now()
+                default: Date.now
             },
             updateAt:{
                 type: Date,
-                default: Date.now()
+                default: Date.now
             }
         }
     },
@@ -42,7 +42,7 @@ module.exports = {
         },
         time:{
             type: Date,
-            default: Date.now()
+            default: Date.now
         }
     },
     user:{
@@ -51,24 +51,6 @@ module.exports = {
             require: true
         },
         password:{
-            type: String,
-            require: true
-        },
-        avatar: {
-            type: String,
-            //require: true
-        },
-        introduce:{ //一句话简介
-            type: String,
-            //require: true
-        }
-        // bio:{//详细介绍（about页面）
-        //     type: String,
-        //     require: true
-        // }
-    },
-    about:{
-        bio:{//详细介绍（about页面）
             type: String,
             require: true
         }
