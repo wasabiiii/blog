@@ -8,7 +8,6 @@ class CommentStore{
     //添加评论
     @action fetchAddComment(body){
         request.post('/api/comment/add',body,resData => {
-            console.log(resData);
             alert(resData.message);
             this.commentList.push(body);
         });
@@ -21,8 +20,6 @@ class CommentStore{
             runInAction(() => {
               this.commentList = resData.data;
             });
-            
-            console.log(this.commentList.slice());
         });
     }
 }

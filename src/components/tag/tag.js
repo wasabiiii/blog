@@ -14,7 +14,6 @@ class Tag extends React.Component{
     }
 
     componentDidMount(){
-        console.log('this.props tag',this.props);
         request.get('/api/blog/cate'+'/'+this.props.match.params.id,(resData) => {
             if(resData.status == 1){
                 this.setState({

@@ -120,6 +120,7 @@ router.post('/edit/:id',(req,res,next)=>{
         "title": req.body.title,
         "content": req.body.content,
         "tag": req.body.tag.split(","),
+        "time.updateAt": Date.now()
         }).exec((err)=>{
             if(err){
                 res.json({

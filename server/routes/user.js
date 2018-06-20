@@ -9,7 +9,6 @@ router.post('/login',(req,res,next)=>{
   const {username,password} = req.body;
   let query = {username:username,password:md5Pwd(password)};
       User.findOne(query,{'password':0},(err,resData)=>{//若查到，将pswd设为0返回
-          console.log(resData);
           if(err){
               res.json({
                   'status':0,
@@ -33,11 +32,8 @@ router.post('/login',(req,res,next)=>{
       })
 })
 
+//后台管理账号注册
 router.post('/register',(req,res,next)=>{
-   /* if(!req.body.title || !req.body.text) {
-        res.statusCode = 400;
-        return res.send('Error 400: Post syntax incorrect.');
-    }*/
     let user = {
         username : "xxx",
         password : md5Pwd("123456"),
@@ -50,7 +46,7 @@ router.post('/register',(req,res,next)=>{
     });
 });
 
-
+//获取登录信息
 router.get('/info',(req,res,next)=>{
     const {userid} = req.cookies;
     if (!userid) {
@@ -74,53 +70,6 @@ router.get('/info',(req,res,next)=>{
         }
   })
 })
-
-// //请求个人信息
-// router.get('/',(req,res,next)=>{
-//     User.find({},(err,resData)=>{
-//         if(err){
-//             res.json({
-//                 'status':0,
-//                 'message':'获取失败'
-//             })
-//         }else{
-//             res.json({
-//                 'status':1,
-//                 'message':'获取成功',
-//                 'data':resData
-//             })
-//         }
-//   })
-// })
-
-// //修改个人信息
-// router.post('/edit',(req,res,next)=>{
-//     let name =  req.fields.name;
-//     let password = req.fields.password;
-//     let avatar = '/be/img/'+req.files.avatar.path.split(path.sep).pop();
-//     let introduce = req.fields.introduce;
-//     // console.log(111);
-//     User.findOne({}).update({
-//         "name":name,
-//         "password":password,
-//         "avatar":avatar,
-//         "introduce":introduce
-//     },(err)=>{
-//       if(err){
-//           res.json({
-//               'status':0,
-//               'message':'更新失败',
-//               "data": err
-//           });
-//       }else{
-//           res.json({
-//               'status':1,
-//               'message':'更新成功'
-//           });
-//       }
-//     })
-// })
-
 
 function md5Pwd(pwd){
   const salt = 'sdgjosgdj234oisfl516km&*(^jhiuhi8&*(gbHk'

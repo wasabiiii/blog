@@ -36,15 +36,6 @@ app.use('/dist/static',express.static(path.resolve('dist/static')));
 app.use('/',express.static(path.resolve('dist')));
 
 
-//app.use('/',express.static(path.join(__dirname, '/client/static')));
-// app.use('/fe',express.static(path.join(__dirname, '/client/static/fe')));
-// app.use('/be',express.static(path.join(__dirname, '/client/static/be')));
-// app.use(require('express-formidable')({
-//   uploadDir: path.join(__dirname,'/client/static/be/img'), //上传目录
-//   keepExtensions: true// 保留后缀
-// }))
-
-
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');

@@ -22,8 +22,8 @@ class BlogDetail extends React.Component{
 
         request.get('/api/blog/'+match.params.id,(resData) => {
             if(resData.status == 1){
-                let {title,tag,content} = resData.data;
-                let time = moment(time).format('YYYY-MM-DD');
+                let {title,tag,time,content} = resData.data;
+                time = moment(time.createAt).format('YYYY-MM-DD');
                 this.setState({
                     title,
                     tag,
@@ -54,14 +54,13 @@ class BlogDetail extends React.Component{
                 <div className="blog-panel">
                     <div className="blog-title">
                         <h1>{title}</h1>
+                        <div>
+                            <span className="time">{time}</span>
+                            <span>{tag_list}</span>
+                        </div>
                     </div>
                     <div className="blog-content detail-content">
-                        <div>
-                            {tag_list}
-                            {time}
-                        </div>
                         <div dangerouslySetInnerHTML={{ __html: content }} />
-                          
                     </div>
                 </div>
 

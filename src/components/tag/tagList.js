@@ -13,7 +13,6 @@ class TagList extends React.Component{
     }
 
     componentDidMount(){
-        console.log('this.props tag_list',this.props);
         request.get('/api/blog/cates',(resData) => {
             if(resData.status == 1){
                 this.setState({
@@ -26,7 +25,6 @@ class TagList extends React.Component{
     render(){
 
         let tag_list = this.state.allTags.map(function (item,index) {
-            console.log(item)
             const link = `/tag/${item}`;
             return <button className="btn btn-xs btn-default tags" key={index} ><Link to={link}>{item}</Link></button>;
         });

@@ -15,7 +15,6 @@ class BlogList extends React.Component{
     }
 
     componentDidMount(){
-        console.log('this.props',this.props);
         this.props.blogStore.fetchPageBlog();
         this.props.blogStore.loadPageBlog();
     }
@@ -44,7 +43,6 @@ class BlogList extends React.Component{
                       activeIndex={blogStore.pageActiveIndex}
                       setIndex={this.setPaginationIndex}
                     />
-                    {/*<div style={{clear:both}}></div>*/}
                 </div>
 
             </div>

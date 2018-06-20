@@ -27,8 +27,6 @@ class Pagination extends React.Component {
 
   toSetIndex(direction){
     const {activeIndex,allPageCount} = this.props;
-    console.log('activeIndex',activeIndex)
-    console.log('allPageCount',allPageCount)
     switch (direction) {
       case "pre":
         this.props.setIndex(activeIndex - 1 > 0 ? activeIndex - 1 : activeIndex)

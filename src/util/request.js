@@ -1,7 +1,7 @@
 import 'whatwg-fetch';
 
 const handleErrors = err => {
-	console.log(err)
+	console.log(err);
 }
 
 const request = {
@@ -30,4 +30,4 @@ const request = {
 
 
 
-export default request
+export default request;

@@ -17,7 +17,6 @@ class BlogStore{
     }
 
     @action loadPageBlog(){
-        console.log(this.pageActiveIndex)
         this.pageBlog = this.allBlog.slice((this.pageActiveIndex-1)*5,(this.pageActiveIndex-1)*5+5);
     }
 
@@ -26,11 +25,7 @@ class BlogStore{
         fetch('/api/blog',{credentials: 'include'})
             .then((response) => response.json())
             .then((resData) => {
-                    console.log(resData);
                     if(resData.status == 1){
-                        // this.setState({
-                        //     data: resData.data,
-                        // });
                         this.allBlog = resData.data;
                         this.allBlogCount = resData.count;
                     }

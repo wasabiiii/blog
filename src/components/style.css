@@ -72,20 +72,31 @@ body{
 }
 
 .blog-title{
-    display: flex;
-    align-items:center;
-    height: 50px;
+    padding: 6px 10px 8px 10px;
     border-bottom: 1px solid #f6f6f6;
-    font-size: 22px;
 }
 
 .blog-title h1{
     font-size: 22px;
 }
 
+.blog-title .time{
+    color: #999;
+    display: inline-block;
+    margin-right: 15px;
+    height: 22px;
+}
+
 .blog-content{
-    margin:15px 0; 
+    margin:15px 10px; 
     overflow:hidden;/*若里面有float元素，可将容器撑大*/
+}
+
+.blog-content p{
+    font-size: 16px;
+    color: #4f4f4f;
+    line-height: 26px;
+    text-align: justify;
 }
 
 .btn-submit{
@@ -125,6 +136,7 @@ body{
 
 .blog-item-time{
     float: right;
+    color: #4f4f4f;
 }
 
 .div-center{

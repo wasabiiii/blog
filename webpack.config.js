@@ -1,13 +1,11 @@
 const webpack = require('webpack');
 const path = require('path');
-/*const eslintFormatter = require('react-dev-utils/eslintFormatter');*/
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 module.exports = {
-    // devtool: 'eval-source-map',//生成Source Maps（使调试更容易),可以定位到源文件，而不是打包后的文件。
     //页面入口文件配置
     entry: './src/index.js',
     //入口文件输出配置
@@ -27,34 +25,6 @@ module.exports = {
     module: {
         //加载器配置
         rules: [
-            //eslint新加
-            // {
-            //     test: /\.(js|jsx)$/,
-            //     enforce: 'pre',
-            //     use: [
-            //         {
-            //             options: {
-            //                 formatter: eslintFormatter,
-            //                 eslintPath: require.resolve('eslint'),
-            //                 // @remove-on-eject-begin
-            //                 baseConfig: {
-            //                     extends: [require.resolve('eslint-config-react-app')],
-            //                 },
-            //                 //ignore: false,
-            //                 useEslintrc: false,
-            //                 // @remove-on-eject-end
-            //             },
-            //             loader: require.resolve('eslint-loader'),
-            //         },
-            //     ],
-            //     // include: [
-            //     //     path.resolve(__dirname, "../../app")
-            //     // ],
-            //     // exclude: [
-            //     //     path.resolve(__dirname, "../../node_modules")
-            //     // ],
-            //     exclude: /node_modules/,
-            // },
             {
                 test: /\.(js|jsx)$/,
                 exclude: /(node_modules)/,
