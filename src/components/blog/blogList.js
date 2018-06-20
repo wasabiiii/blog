@@ -4,7 +4,6 @@ import moment from 'moment';
 import { inject, observer } from 'mobx-react';
 import BlogItem from './blogItem';
 import Pagination from 'util/pagination/index.js'
-// require('./style.css');
 
 @inject('blogStore')
 @observer

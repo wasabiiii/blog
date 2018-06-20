@@ -106,20 +106,12 @@ body{
 
 /*blog主页*/
 .blog-item{
-    /*display: flex;
-    align-items:baseline;*/
     padding: 15px;
     border-bottom: 2px dashed #f6f6f6;
 }
 
 .blog-item h1{
-    /*padding: 1em 80px 0 80px;*/
     font-size: 24px;
-    /*margin: 1.5em -80px 0.5em -80px;*/
-    /*text-shadow: 1px 1px #EFEFEF, 3px 3px #AEE2D9;*/
-    /*border-top: 2px dashed #f6f6f6;*/
-    /*color: #22C3AA;*/
-    /*color: #4f4f4f;*/
     color: #337ab7;
     font-weight: bolder;
     overflow: visible;
@@ -211,10 +203,3 @@ body{
 .author-input{
     width: 150px;
 }
-
-
-
-
-
-
-
