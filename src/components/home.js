@@ -1,7 +1,6 @@
 import React from 'react';
-require('./style.css');
-import BlogList from 'components/blog/blogList'
-import TagList from 'components/tag/tagList'
+import BlogList from 'components/blog/blogList';
+import TagList from 'components/tag/tagList';
 
 class Home extends React.Component{
     render(){

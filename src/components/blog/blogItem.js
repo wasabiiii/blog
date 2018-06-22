@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link }    from 'react-router-dom';
 import moment from 'moment';
-// require('./style.css');
 
 class BlogItem extends React.Component{
     render(){

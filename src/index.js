@@ -10,6 +10,8 @@ import Tag from './components/tag/tag';
 import {Provider} from 'mobx-react';
 import rootStore from './stores/rootStore';
 
+import './css/style.css';
+
 class App extends React.Component{
     render(){
         return (

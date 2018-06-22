@@ -4,7 +4,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
-let WEBPACK_ENV = process.env.WEBPACK_ENV || 'dev';
 module.exports = {
     //页面入口文件配置
     entry: './src/index.js',
@@ -12,8 +11,7 @@ module.exports = {
     //__dirname表示当前目录
     output: {
         path: path.resolve(__dirname, 'dist'),
-        publicPath: WEBPACK_ENV === 'dev' 
-            ? '/dist/' : '',
+        publicPath: '/dist/',
         filename: 'static/js/bundle.js',
     },
     resolve: {

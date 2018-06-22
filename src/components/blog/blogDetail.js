@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import request from 'util/request';
 import Comment from 'components/comment/comment';
 import moment from 'moment';
-// require('./style.css');
 
 class BlogDetail extends React.Component{
     constructor(props){
