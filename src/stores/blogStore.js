@@ -20,6 +20,9 @@ class BlogStore{
         this.pageBlog = this.allBlog.slice((this.pageActiveIndex-1)*5,(this.pageActiveIndex-1)*5+5);
     }
 
+    @action fetchAllBlog(){
+        
+    }
 
     @action fetchPageBlog(){
         fetch('/api/blog',{credentials: 'include'})

@@ -22,17 +22,17 @@ class Header extends React.Component{
                     </div>
                     <div className="collapse navbar-collapse" id="navbar-menu">
                       <ul className="nav navbar-nav navbar-right">
-                        <li className="cative">
+                        <li>
                             <NavLink exact activeClassName="active" to="/">
                                 HOME
                             </NavLink>
                         </li>
-                        <li className="cative">
-                            <NavLink to="/about" activeClassName="active">
+                        <li>
+                            <NavLink to="/archive" activeClassName="active">
                                 归档
                             </NavLink>
                         </li>
-                        <li className="cative">
+                        <li>
                             <NavLink to="/about" activeClassName="active">
                                 ABOUT
                             </NavLink>

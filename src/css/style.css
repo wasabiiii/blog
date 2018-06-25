@@ -150,11 +150,19 @@ body{
     padding: 50px 0 30px 0;
 }
 
+/*分页-当前页样式*/
 .pagination>li .active{
     background-color: #eee;
 }
 
+/*文章中图片自适应*/
+.detail-content img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
 
+/*评论*/
 .comment-item{
     border-bottom: 1px solid #f6f6f6;
     padding: 15px;
@@ -202,4 +210,14 @@ body{
 
 .author-input{
     width: 150px;
+}
+
+ /*归档 */
+.archive{
+    padding:8px;
+}
+
+/*关于*/
+.about{
+    padding: 3%;
 }

@@ -7,6 +7,8 @@ import Header from './components/header';
 import Footer from './components/footer';
 import BlogDetail from './components/blog/blogDetail';
 import Tag from './components/tag/tag';
+import Archive from './components/archive/archive';
+import About from './components/about/about';
 import {Provider} from 'mobx-react';
 import rootStore from './stores/rootStore';
 
@@ -22,10 +24,10 @@ class App extends React.Component{
                     
                         <Switch>
                             <Route exact path="/" component={Home}/>
-                            <Route path="/about" component={Home} />
+                            <Route path="/about" component={About} />
                             <Route path="/blog/:id" component={BlogDetail} />
                             <Route path="/tag/:id" component={Tag} />
-                            
+                            <Route path="/archive" component={Archive} />
                         </Switch>
                    
                    <Footer />
