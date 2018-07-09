@@ -29,9 +29,8 @@ class Banner extends React.Component{
         return(
             <div className="banner">
                 <div>
-                    <p>KEEP CLAM</p>
-                    <p>&</p>
-                    <p>STAY BLINGBLING</p>
+                    <h1>Lulu's Blog</h1>
+                    <p>Keep calm & Stay Blingbling</p>
                 </div>
             </div>
         )

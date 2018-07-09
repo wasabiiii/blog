@@ -5,7 +5,7 @@ import moment from 'moment';
 class BlogItem extends React.Component{
     render(){
         let {id,title,content,tag,time} = this.props;
-        content = content.replace(/<[^>]+>/g,"");//去除html标签
+        content = content.replace(/[#`*>]*/g,"");//去除markdown语法
 
         let tag_list = tag.map(function (item,index) {
             const link = `/tag/${item}`;

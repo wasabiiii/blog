@@ -61,7 +61,7 @@ module.exports = {
             },
             // 字体图标的配置
             {
-                test: /\.(eot|svg|ttf|woff|woff2|otf)$/,
+                test: /\.(ico|eot|svg|ttf|woff|woff2|otf)$/,
                 use: [
                     {
                         loader: 'url-loader',
@@ -84,7 +84,7 @@ module.exports = {
         // 处理html文件 
         new HtmlWebpackPlugin({
             template: './src/index.html',
-            // favicon: './favicon.ico'
+            favicon: './favicon.ico'
         }),
         // 提出公共模块
         new webpack.optimize.CommonsChunkPlugin({
