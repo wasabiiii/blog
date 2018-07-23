@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import moment from 'moment';
 import { inject, observer } from 'mobx-react';
 import BlogItem from './blogItem';
-import Pagination from 'util/pagination/index.js'
+import Pagination from 'util/pagination/index.js';
 
 @inject('blogStore')
 @observer

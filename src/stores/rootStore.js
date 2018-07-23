@@ -6,4 +6,4 @@ const rootStore = {
   commentStore
 }
 
-export default rootStore
+export default rootStore;

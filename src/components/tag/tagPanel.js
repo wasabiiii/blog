@@ -1,10 +1,9 @@
 import React from 'react';
 import request from 'util/request';
-import { Link,withRouter }    from 'react-router-dom';
-// require('./style.css');
-// 
+import { Link,withRouter } from 'react-router-dom';
+import Tag from './tag';
 @withRouter
-class TagList extends React.Component{
+class TagPanel extends React.Component{
     constructor(props){
         super(props);
         this.state={
@@ -23,23 +22,18 @@ class TagList extends React.Component{
     }
 
     render(){
-
-        let tag_list = this.state.allTags.map(function (item,index) {
-            const link = `/tag/${item}`;
-            return <button className="btn btn-xs btn-default tags" key={index} ><Link to={link}>{item}</Link></button>;
-        });
-
         return(
             <div className="blog-panel"> 
                 <div className="blog-title">    
                     <h1>全部标签</h1>
                 </div> 
                 <div className="blog-content">  
-                    {tag_list}
+                   
+                    <Tag data={this.state.allTags} tagclass="all-tags"/>
                 </div>       
             </div>
         )
     }
 }
 
-export default TagList;
+export default TagPanel;

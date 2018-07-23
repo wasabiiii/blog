@@ -28,11 +28,7 @@ app.use(function(req, res, next) {
   if(req.url.startsWith('/api/')||req.url.startsWith('/dist/static')){
     return next()
   }
-  // }else if(req.url.startsWith('/favicon.ico')){
-  //   app.use('/dist/favicon.ico',express.static(path.resolve('dist/favicon.ico')));
-  // }
   return res.sendFile(path.resolve('dist/index.html'))
-
 });
 
 app.use('/dist/static',express.static(path.resolve('dist/static')));

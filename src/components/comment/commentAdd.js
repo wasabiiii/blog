@@ -38,6 +38,10 @@ class CommentAdd extends React.Component{
             };
 
             this.props.commentStore.fetchAddComment(body);
+            this.setState({
+                inputComment:'',
+                inputAuthor:''
+            });
         }
 
 

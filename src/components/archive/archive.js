@@ -2,7 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import moment from 'moment';
 import { inject, observer } from 'mobx-react';
-import TagList from 'components/tag/tagList';
+import TagPanel from 'components/tag/tagPanel';
 
 @inject('blogStore')
 @observer
@@ -31,7 +31,7 @@ class Archive extends React.Component{
                         {archiveList}
                     </div>
                     <div className="col-md-3">
-                        <TagList />
+                        <TagPanel />
                     </div>
                 </div>
             </div>
@@ -39,22 +39,17 @@ class Archive extends React.Component{
     }
 }
 
-class ArchiveItem extends React.Component{
-    render(){
-        let {id,title,time} = this.props;
-        return(
-            <div className="archive">
-                <Link to={"/blog/"+id}>
-                    <span>{title}</span>
-                </Link>
-                <span className="blog-item-time float-right">
-                    {moment(time).format('YYYY-MM-DD')}
-                </span>
-            </div>
-        )
+const ArchiveItem = ({id,title,time})=>(
+        <div className="archive">
+            <Link to={"/blog/"+id}>
+                <span>{title}</span>
+            </Link>
+            <span className="blog-item-time float-right">
+                {moment(time).format('YYYY-MM-DD')}
+            </span>
+        </div>
+    );
 
-    }
-}
 export default Archive;
 
 

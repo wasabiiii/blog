@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import request from 'util/request';
 import Comment from 'components/comment/comment';
 import moment from 'moment';
+import Tag from 'components/tag/tag';
 
 class BlogDetail extends React.Component{
     constructor(props){
@@ -43,10 +44,6 @@ class BlogDetail extends React.Component{
 
     render(){
         let {title,tag,time,content} = this.state;
-        let tag_list = tag.map(function (item,index) {
-            const link = `/tag/${item}`;
-            return <button className="btn btn-xs btn-default tag" key={index} ><Link to={link}>{item}</Link></button>;
-        });
 
         return(
             <div className="container">   
@@ -55,7 +52,7 @@ class BlogDetail extends React.Component{
                         <h1>{title}</h1>
                         <div>
                             <span className="time">{time}</span>
-                            <span>{tag_list}</span>
+                            <Tag data={tag} tagclass="article-tag"/>
                         </div>
                     </div>
                     <div className="blog-content detail-content">

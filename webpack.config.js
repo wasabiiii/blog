@@ -35,17 +35,20 @@ module.exports = {
                 test: /\.css$/,
                 use: ExtractTextPlugin.extract({
                     fallback: "style-loader",
-                    use: "css-loader"
+                    use: [
+                            { loader: 'css-loader', options: { importLoaders: 1 } },
+                            'postcss-loader'
+                          ]
                 })
             },
             // sass文件的处理
-            {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: ['css-loader', 'sass-loader']
-                })
-            },
+            // {
+            //     test: /\.scss$/,
+            //     use: ExtractTextPlugin.extract({
+            //         fallback: 'style-loader',
+            //         use: ['css-loader', 'sass-loader',"postcss-loader"]
+            //     })
+            // },
             // 图片的配置
             {
                 test: /\.(png|jpg|gif)$/,
